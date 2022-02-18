@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseFragment<VB : ViewDataBinding>(private val layoutId: Int) : Fragment() {
-    protected lateinit var binding: VB
+    private lateinit var binding: VB
 
     override fun onCreateView(
         inflater: LayoutInflater,

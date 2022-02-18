@@ -14,7 +14,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 
 abstract class BaseDialogFragment<VB: ViewDataBinding>(private val layoutId: Int) : DialogFragment() {
-    protected lateinit var binding: VB
+    private lateinit var binding: VB
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
@@ -25,9 +25,11 @@ abstract class BaseDialogFragment<VB: ViewDataBinding>(private val layoutId: Int
     protected open fun init() {
 
     }
+
     protected open fun toast(context: Context, msg: String) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
+
     protected open fun Context.dialogFragmentResize(dialogFragment: DialogFragment, width: Float, height: Float) {
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         if (Build.VERSION.SDK_INT < 30) {
@@ -55,4 +57,5 @@ abstract class BaseDialogFragment<VB: ViewDataBinding>(private val layoutId: Int
             window?.setLayout(x, y)
         }
     }
+
 }

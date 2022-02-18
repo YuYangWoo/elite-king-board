@@ -10,7 +10,8 @@ import androidx.databinding.ViewDataBinding
 
 abstract class BaseActivity<VB : ViewDataBinding>(private val layoutId: Int) : AppCompatActivity() {
     lateinit var binding: VB
-    private val TAG = "BASEACTIVITY"
+    private val TAG = "BASE_ACTIVITY"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
